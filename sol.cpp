@@ -12,10 +12,12 @@ int main() {
 		cin >> f[i];
 	}
 	sort(f, f + m);
-	int best = INT_MAX;
-	for (int k = 0; k < (m - n) + 1; k++) {
-		best = min(best, f[k + n - 1] - f[k]);
+	int ans = INT_MAX;
+	// 5 7 10 10 12 22
+	// 0 1  2  3  4  5
+	for (int i = 0; i < (m - n) + 1; i++) {
+		ans = min(ans, f[i + n - 1] - f[i]);
 	}
-	cout << best << '\n';
+	cout << ans << '\n';
 	return 0;
 }
